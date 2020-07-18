@@ -31,9 +31,7 @@
     % Delta de paso para satélites
     dPs(1,:) = [0 0 0 0.2 0 0.2];
 %     dPs(2,:) = [0 0 0 10 0 0];
-%     dPs(2,:) = [0 0 0 0 0 0];
 %     dPs(3,:) = [0 0 0 0 0 0];
-%     dPs(4,:) = [0 0 5 5 0 0];
     
     % Facilidades en Tierra
     F=csvread('panamaCanal.csv');
@@ -65,44 +63,11 @@
 %         Pft(1,1:4,j)=parametrosTemp(1:4);
 %     end
     
-%    Facilidades
+%%  Facilidades
     for j=1:nFT
         Pft(1,:,j)=F(j,:);
     end
     
-%     Pft(1,:,1)=F(randi([1 size(F,1)],1),:);
-%     for j=2:nFT
-%         parametrosTemp(1:4) = F(randi([1 size(F,1)],1),:);
-%         while ismember(parametrosTemp(1),Pft(1,1,:)) && dFt(j)>=0
-%         parametrosTemp(1:4)= F(randi([1 size(F,1)],1),:);
-%         end
-%         Pft(1,:,j)=parametrosTemp(1:4);
-%     end
-%     
-    % Relay
-    % Ps(1,:,3)=[7378.137,0,45,193.4537,180,0];
-    % Ps(1,:,4)=[0,1000,80,0,0,0];
-    % Ps(1,:,5)=[0,1000,80,0,0,0];
-
-    % Facilidades en Tierra
-    % Pft(1,:,1)=[1 -31.5263 -64.4674 0];
-    % Pft(1,:,2)=[2 -54.5104 -67.1164 0];
-    % Pft(1,:,3)=[3 49.9099 12.3955 0];
-    
-    % Pft(1,:,1)=[1 0 0 1];
-    % Pft(1,:,2)=[2 90 0 1];
-    % Pft(1,:,2)=[3 -90 0 1];
-    % Pft(1,:,2)=[4 0 -180 1];
-    % Pft(1,:,2)=[5 0 180 1];
-    % Pft(1,:,2)=[6 0 180 1];
-    
-    % Pft(1,:,3)=[3 49.9099 12.3955 0];
-    % Pft(1,:,4)=[4 49.9099 12.3955 0];
-        
-%     Pft(1,:,4)=F(randi([1 size(F,1)],1),:);
-%     Pft(1,:,5)=F(randi([1 size(F,1)],1),:);
-%     Pft(1,:,6)=F(randi([1 size(F,1)],1),:);
-
 %% Crear elementos de la misión en el escenario
     
     fprintf('Loading Assets..'); fprintf('\n');
