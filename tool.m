@@ -1,13 +1,13 @@
 %% Variables generales
     format shortG;
-    RT = 6378.137;       % Radio Terrestre (m醲imo) [Km]
+    RT = 6378.137;       % Radio Terrestre (m谩ximo) [Km]
     uT = 3.986004418E14; % Earth's Standard Gravitational parameter
 
 %% Configuraciones generales
     
     itMax=100; rstAt=500;
 
-%% Configuraci髇 del escenario
+%% Configuraci贸n del escenario
 
     root.UnitPreferences.Item('DateFormat').SetCurrentUnit('UTCG');
     root.UnitPreferences.SetCurrentUnit('Distance','Km');
@@ -18,9 +18,9 @@
     scTime=scenario.StopTime;
     root.ExecuteCommand('SubObjUnload *');
     
-%% Espacios soluci髇
+%% Espacios soluci贸n
 
-    % Sat閘ites
+    % Sat茅lites
     
      % A(:,:,1) = [RT+400 RT+600; 0 0; 0 180; 0 360; 0 0; 0 360];
     A(:,:,1) = [7007.7 7007.7; 0 0; 97.8 97.8; 135 160; 0 0; 0 360];
@@ -28,7 +28,7 @@
     % Sun Synchr. mision:
     % A(:,:,1) = [7007.7 7007.7; 0 0; 97.9 97.9; 193 193; 90 90; 0 0];
 
-    % Delta de paso para sat閘ites
+    % Delta de paso para sat茅lites
     dPs(1,:) = [0 0 0 0.2 0 0.2];
 %     dPs(2,:) = [0 0 0 10 0 0];
 %     dPs(2,:) = [0 0 0 0 0 0];
@@ -45,10 +45,10 @@
     
 %% Soluciones iniciales
     
-    % Sat閘ites
+    % Sat茅lites
     nSM=1; nRelay=0; nFT=9; Ps=zeros(3,6,nSM+nRelay); Pft=zeros(3,4,nFT);
     
-    % Misi髇
+    % Misi贸n
     % Ps(1,:,1)=[7007.7; 0; 97.8; 150; 0; 240];
     
     for i=1:nSM+nRelay
@@ -103,7 +103,7 @@
 %     Pft(1,:,5)=F(randi([1 size(F,1)],1),:);
 %     Pft(1,:,6)=F(randi([1 size(F,1)],1),:);
 
-%% Crear elementos de la misi髇 en el escenario
+%% Crear elementos de la misi贸n en el escenario
     
     fprintf('Loading Assets..'); fprintf('\n');
 
@@ -152,16 +152,15 @@ end
     
     fprintf('..Assets Loaded.'); fprintf('\n');
 
-%% Algoritmo de b鷖queda
+%% Algoritmo de b煤squeda
     
     simulatedAnnealing
     %hillClimbing
     %busquedaAleatoria
-    %algoritmoGenetico
-    %GATest1
+    %geneticAlgorithm
     %bruteForce
     
-%% Presento la mejor soluci髇
+%% Presento la mejor soluci贸n
 
 for nAsset=1:nSM+nRelay
     parametrosTemp = Ps(3,:,nAsset);
